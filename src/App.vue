@@ -16,6 +16,7 @@
         <transition name="layout-mask">
             <div class="layout-mask p-component-overlay" v-if="mobileMenuActive"></div>
         </transition>
+        <toast />
 	</div>
 </template>
 
@@ -24,6 +25,7 @@ import AppTopBar from './AppTopbar.vue';
 import AppMenu from './AppMenu.vue';
 import AppConfig from './AppConfig.vue';
 import AppFooter from './AppFooter.vue';
+import Toast from 'primevue/toast';
 
 export default {
     data() {
@@ -34,16 +36,16 @@ export default {
             overlayMenuActive: false,
             mobileMenuActive: false,
             menu : [
-                {
-                    label: 'Home',
-                    items: [{
-                        label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'
-                    }]
-                },
 				{
 					label: 'Pages', icon: 'pi pi-fw pi-clone',
 					items: [
-						{label: 'Empty', icon: 'pi pi-fw pi-circle-off', to: '/empty'}
+                        {label: 'Home', icon: 'pi pi-fw pi-home', to: '/'},
+						{label: 'Empty', icon: 'pi pi-fw pi-circle-off', to: '/empty'},
+                        {label: 'Compose', icon: 'pi pi-fw pi-pencil', to: '/compose'},
+                        {label: 'Inbox', icon: 'pi pi-fw pi-envelope', to: '/inbox'},
+                        {label: 'Sent', icon: 'pi pi-fw pi-reply', to: '/sent'},
+                        {label: 'Trash', icon: 'pi pi-fw pi-trash', to: '/trash'},
+                        {label: 'Important', icon: 'pi pi-fw pi-inbox', to: '/important'}
 					]
 				},
                 {
@@ -69,26 +71,6 @@ export default {
                                 },
                             ]
                         },
-                        {
-                            label: 'Submenu 2', icon: 'pi pi-fw pi-bookmark',
-                            items: [
-                                {
-                                    label: 'Submenu 2.1', icon: 'pi pi-fw pi-bookmark',
-                                    items: [
-                                        {label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark'},
-                                        {label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark'},
-                                        {label: 'Submenu 2.1.3', icon: 'pi pi-fw pi-bookmark'},
-                                    ]
-                                },
-                                {
-                                    label: 'Submenu 2.2', icon: 'pi pi-fw pi-bookmark',
-                                    items: [
-                                        {label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark'},
-                                        {label: 'Submenu 2.2.2', icon: 'pi pi-fw pi-bookmark'}
-                                    ]
-                                }
-                            ]
-                        }
                     ]
                 },
             ]
@@ -200,6 +182,7 @@ export default {
         'AppMenu': AppMenu,
         'AppConfig': AppConfig,
         'AppFooter': AppFooter,
+        Toast,
     }
 }
 </script>

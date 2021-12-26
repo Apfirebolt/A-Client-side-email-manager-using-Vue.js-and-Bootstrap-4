@@ -2,9 +2,9 @@
   <div class="grid">
     <div class="col-12">
       <div class="card">
-        <h5>Empty Page</h5>
+        <h5>Inbox Page</h5>
         <p>
-          Use this page to start from scratch and place your custom content.
+          Inbox Mails Page.
         </p>
       </div>
     </div>
@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "EmptyPage",
+  name: "InboxPage",
 };
 </script>
 
