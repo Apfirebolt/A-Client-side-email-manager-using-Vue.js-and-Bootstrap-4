@@ -13,11 +13,6 @@ const routes = [
         component: () => import('./pages/Sent.vue'),
     },
     {
-        path: '/spam',
-        name: 'spam',
-        component: () => import('./pages/Spam.vue'),
-    },
-    {
         path: '/important',
         name: 'important',
         component: () => import('./pages/Important.vue'),
