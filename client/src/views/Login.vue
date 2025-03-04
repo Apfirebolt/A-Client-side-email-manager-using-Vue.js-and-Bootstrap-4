@@ -79,10 +79,12 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useAuth } from "../store/auth";
 import { useForm } from "vee-validate";
 import router from "../routes/index";
+import emitter from "../plugins/eventBus";
+import { useEmailStore } from "../store/mail";
 
 const auth = useAuth();
 const authData = computed(() => auth.getAuthData);
@@ -122,6 +124,13 @@ const password = defineInputBinds("password");
 const onSubmit = handleSubmit(async (values) => {
   // Submit to API
   await auth.loginAction(values);
-  // router.push({ name: 'Expense' });
+});
+
+onMounted(() => {
+  emitter.on("logout", () => {
+    const emailStore = useEmailStore();
+    emailStore.resetEmailData();
+    console.log("logout event received");
+  });
 });
 </script>

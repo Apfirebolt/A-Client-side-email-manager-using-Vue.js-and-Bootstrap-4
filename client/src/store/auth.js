@@ -4,6 +4,7 @@ import Cookie from "js-cookie";
 import router from "../routes";
 import httpClient from "../plugins/interceptor";
 import { useToast } from "vue-toastification";
+import emitter from '../plugins/eventBus';
 
 const toast = useToast();
 
@@ -80,6 +81,7 @@ export const useAuth = defineStore("auth", {
     },
 
     logout() {
+      emitter.emit('logout');
       this.authData = null;
       Cookie.remove("user");
       router.push("/login");

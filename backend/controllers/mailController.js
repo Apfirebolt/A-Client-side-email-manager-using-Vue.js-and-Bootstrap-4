@@ -86,18 +86,44 @@ const deleteEmail = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc    Get existing email
+// @desc    Update existing email
+// @route   PATCH /api/emails/:id
+// @access  Private - User or Admin
+const updateEmail = asyncHandler(async (req, res) => {
+  const { isImportant, isRead, isDeleted } = req.body;
+  const email = await Email.findById(req.params.id);
+
+  if (
+    email.user.toString() !== req.user._id.toString()
+  ) {
+    res.status(403);
+    throw new Error("Only email owner can update email");
+  }
+
+  if (email) {
+    email.isImportant = isImportant !== undefined ? isImportant : email.isImportant;
+    email.isRead = isRead !== undefined ? isRead : email.isRead;
+    email.isDeleted = isDeleted !== undefined ? isDeleted : email.isDeleted;
+
+    const updatedEmail = await email.save();
+    res.json(updatedEmail);
+  } else {
+    res.status(404);
+    throw new Error("Email not found");
+  }
+});
+
+// @desc    Get email by ID
 // @route   GET /api/emails/:id
 // @access  Private - User or Admin
 const getEmail = asyncHandler(async (req, res) => {
   const email = await Email.findById(req.params.id);
 
   if (
-    email.user.toString() !== req.user._id.toString() &&
-    req.user.isAdmin === false
+    email.user.toString() !== req.user._id.toString()
   ) {
     res.status(403);
-    throw new Error("Only email owner and admin can view emails");
+    throw new Error("Only email owner can view email");
   }
 
   if (email) {
@@ -113,4 +139,5 @@ export {
   createEmail,
   deleteEmail,
   getEmail,
+  updateEmail,
 };
