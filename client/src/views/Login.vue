@@ -55,7 +55,7 @@
           <div>
             <button
               type="submit"
-              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-dark-slate-grey focus:outline-none focus:ring-2 focus:ring-offset-2"
+              class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-primary-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
             >
               Sign in
             </button>

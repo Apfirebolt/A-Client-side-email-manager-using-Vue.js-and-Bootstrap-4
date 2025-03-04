@@ -11,6 +11,7 @@ export const useEmailStore = defineStore("email", {
   state: () => ({
     email: ref({}),
     emails: ref([]),
+    users: ref([]),
     loading: ref(false),
   }),
 
@@ -20,6 +21,9 @@ export const useEmailStore = defineStore("email", {
     },
     getEmails() {
       return this.emails;
+    },
+    getUsers() {
+      return this.users;
     },
     isLoading() {
       return this.loading;
@@ -118,6 +122,20 @@ export const useEmailStore = defineStore("email", {
           }
         );
         this.email = response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async getUsersAction() {
+      try {
+        const headers = {
+          Authorization: `Bearer ${auth.authData.token}`,
+        };
+        const response = await httpClient.get("users", {
+          headers,
+        });
+        this.users = response.data;
       } catch (error) {
         console.log(error);
       }
