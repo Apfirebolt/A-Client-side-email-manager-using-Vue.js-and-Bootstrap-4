@@ -34,6 +34,31 @@ const routes = [
         component: () => import('../views/Dashboard.vue')
     },
     {
+        path: '/compose',
+        name: 'Compose',
+        component: () => import('../views/Compose.vue')
+    },
+    {
+        path: '/important',
+        name: 'Important',
+        component: () => import('../views/Important.vue')
+    },
+    {
+        path: '/inbox',
+        name: 'Inbox',
+        component: () => import('../views/Inbox.vue')
+    },
+    {
+        path: '/sent',
+        name: 'Sent',
+        component: () => import('../views/Sent.vue')
+    },
+    {
+        path: '/trash',
+        name: 'Trash',
+        component: () => import('../views/Trash.vue')
+    },
+    {
         path: '/server-error',
         name: 'ServerError',
         component: () => import('../views/ServerError.vue')
