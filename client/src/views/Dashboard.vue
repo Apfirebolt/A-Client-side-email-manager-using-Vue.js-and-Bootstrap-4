@@ -18,20 +18,17 @@
 <script setup>
 import { onMounted, ref, computed } from "vue";
 import DashboardMenu from "../components/DashboardMenu.vue";
-import {
-  Dialog,
-  TransitionChild,
-  TransitionRoot,
-  DialogPanel,
-} from "@headlessui/vue";
 
 import { useAuth } from "../store/auth";
+import { useEmailStore } from "../store/mail";
 
 const auth = useAuth();
+const emailStore = useEmailStore();
 
 const authData = computed(() => auth.getAuthData);
 
-onMounted(async () => {
- 
+onMounted(() => {
+  emailStore.getEmailsAction();
 });
+
 </script>

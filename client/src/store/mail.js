@@ -3,6 +3,7 @@ import { ref } from "vue";
 import httpClient from "../plugins/interceptor";
 import { useAuth } from "./auth";
 import { useToast } from "vue-toastification";
+import emitter from '../plugins/eventBus';
 
 const toast = useToast();
 const auth = useAuth();
@@ -41,7 +42,7 @@ export const useEmailStore = defineStore("email", {
           headers,
         });
         if (response.status === 201) {
-          toast.success("Email added!");
+          toast.success('Email sent!');
         }
       } catch (error) {
         console.log(error);
@@ -109,14 +110,24 @@ export const useEmailStore = defineStore("email", {
       }
     },
 
-    async markEmailAsRead(emailItem) {
+    async updateEmail(emailItem, action) {
       try {
         const headers = {
           Authorization: `Bearer ${auth.authData.token}`,
         };
+        console.log('emailItem', emailItem);
+        if (action === 'important') {
+          emailItem.isImportant = !emailItem.isImportant;
+        }
+        if (action === 'trash') {
+          emailItem.isDeleted = !emailItem.isTrash;
+        }
+        if (action === 'read') {
+          emailItem.isRead = !emailItem.isRead;
+        }
         const response = await httpClient.patch(
-          "emails/" + emailItem._id + "/read",
-          null,
+          "emails/" + emailItem._id,
+          emailItem,
           {
             headers,
           }
