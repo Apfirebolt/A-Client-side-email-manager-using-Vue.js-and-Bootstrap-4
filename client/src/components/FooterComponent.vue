@@ -1,8 +1,8 @@
 <template>
-  <footer class="bg-jet-black py-4">
+  <footer class="bg-secondary-100 py-4 text-primary-100">
     <div class="container mx-auto px-4">
-      <p class="text-center text-light-blue text-sm">
-        &copy; {{ currentYear }} Mini Url - A Url Shortening Service
+      <p class="text-center text-sm">
+        &copy; {{ currentYear }} Emailer - A Gmail Clone
       </p>
     </div>
   </footer>

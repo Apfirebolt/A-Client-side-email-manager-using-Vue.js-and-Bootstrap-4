@@ -1,10 +1,10 @@
 <template>
-  <Disclosure as="nav" class="bg-jet-black" v-slot="{ open }">
+  <Disclosure as="nav" class="bg-secondary-100" v-slot="{ open }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <h2 class="text-2xl text-white font-bold">Mini Url</h2>
+            <h2 class="text-2xl text-white font-bold">Emailer</h2>
           </div>
           <div class="hidden sm:block sm:ml-6">
             <div class="flex space-x-4">

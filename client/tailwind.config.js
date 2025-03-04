@@ -7,13 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        lightBlue: '#B8DBD9', 
-        ghostGrey: '#F4F4F9', // for complete body
-        cadetGrey: '#586F7C',
-        darkSlateGrey: '#2F4550',
-        jetBlack: '#333333',
+        primary: {
+          100: "#F0F0D7",
+          200: "#D0DDD0",
+          300: "#AAB99A",
+        },
+        secondary: {
+          100: "#727D73",
+          200: "#e0f2fe",
+          300: "#bae6fd",
       },
     },
   },
   plugins: [],
+  }
 }

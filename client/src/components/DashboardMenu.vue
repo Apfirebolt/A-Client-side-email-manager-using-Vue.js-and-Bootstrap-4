@@ -1,74 +1,45 @@
 <template>
-  <main class="shadow sm:rounded-lg" id="about">
-    <div class="px-4 py-5">
-      <h2 class="text-3xl my-2 py-2 text-center text-jet-black">DASHBOARD</h2>
-      <div class="flex flex-col items-center bg-gray-100 p-4 rounded-md">
-        <p>
-          Welcome to the dashboard,
-          <span v-if="authData" class="text-lg font-semibold text-gray-700">
-            {{ authData.username }}
-          </span>
-        </p>
-      </div>
-      <nav>
-        <ul class="flex flex-col items-center mt-4">
-          <li class="my-2">
+  <nav>
+    <ul class="flex mt-4">
+      <li class="my-2">
         <router-link
           to="/inbox"
           class="text-lg text-jet-black hover:text-jet-black transition duration-300 ease-in-out p-2 w-48 hover:bg-gray-200 hover:text-xl"
           >Inbox</router-link
         >
-          </li>
-          <li class="my-2">
+      </li>
+      <li class="my-2">
         <router-link
-          to="/send"
+          to="/sent"
           class="text-lg text-jet-black hover:text-jet-black transition duration-300 ease-in-out p-2 w-48 hover:bg-gray-200 hover:text-xl"
-          >Send</router-link
+          >Sent</router-link
         >
-          </li>
-          <li class="my-2">
+      </li>
+      <li class="my-2">
         <router-link
           to="/trash"
           class="text-lg text-jet-black hover:text-jet-black transition duration-300 ease-in-out p-2 w-48 hover:bg-gray-200 hover:text-xl"
           >Trash</router-link
         >
-          </li>
-          <li class="my-2">
+      </li>
+      <li class="my-2">
         <router-link
           to="/important"
           class="text-lg text-jet-black hover:text-jet-black transition duration-300 ease-in-out p-2 w-48 hover:bg-gray-200 hover:text-xl"
           >Important</router-link
         >
-          </li>
-          <li class="my-2">
+      </li>
+      <li class="my-2">
         <router-link
           to="/compose"
           class="text-lg text-jet-black hover:text-jet-black transition duration-300 ease-in-out p-2 w-48 hover:bg-gray-200 hover:text-xl"
           >Compose</router-link
         >
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </main>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script setup>
-import { onMounted, ref, computed } from "vue";
-import {
-  Dialog,
-  TransitionChild,
-  TransitionRoot,
-  DialogPanel,
-} from "@headlessui/vue";
 
-import { useAuth } from "../store/auth";
-
-const auth = useAuth();
-
-const authData = computed(() => auth.getAuthData);
-
-onMounted(async () => {
- 
-});
 </script>
