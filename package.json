@@ -13,7 +13,6 @@
   "author": "Amit Prafulla",
   "license": "MIT",
   "dependencies": {
-    "@heroicons/vue": "^2.2.0",
     "@tailwindcss/postcss": "^4.0.9",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.7",

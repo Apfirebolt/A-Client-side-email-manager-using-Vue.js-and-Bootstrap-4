@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <ul class="flex mt-4">
+  <nav class="bg-primary-200 p-2 flex items-center justify-center">
+    <ul class="flex">
       <li class="my-2">
         <router-link
           to="/inbox"
