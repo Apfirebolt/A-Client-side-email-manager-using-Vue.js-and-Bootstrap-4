@@ -37,21 +37,19 @@ const getUserEmails = asyncHandler(async (req, res) => {
 // @route   POST /api/emails
 // @access  Private - User
 const createEmail = asyncHandler(async (req, res) => {
-  const { subject, content, isImportant, type, from, attachments } = req.body;
+  const { subject, content, isImportant, from, user } = req.body;
 
-  if (!subject || !content || !type || !from || !from.name || !from.email) {
+  if (!subject || !content || !from || !from.name || !from.email) {
     res.status(400);
     throw new Error("All required fields must be filled");
   }
 
   const email = await Email.create({
+    user,
     subject,
     content,
     isImportant,
-    type,
     from,
-    attachments,
-    user: req.user._id,
   });
 
   if (email) {

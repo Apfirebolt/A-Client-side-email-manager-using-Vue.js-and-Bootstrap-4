@@ -3,6 +3,11 @@ import moment from "moment";
 
 const emailSchema = mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
     subject: {
       type: String,
       required: true,
@@ -22,11 +27,6 @@ const emailSchema = mongoose.Schema(
     isRead: {
       type: Boolean,
       default: false,
-    },
-    type: {
-      type: String,
-      enum: ["incoming", "outgoing"],
-      required: true,
     },
     date: {
       type: Date,

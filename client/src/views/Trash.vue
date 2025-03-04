@@ -6,11 +6,25 @@
         <p>Welcome to the trash email page</p>
       </div>
       <DashboardMenu />
+      <EmailTable v-if="emails" :emails="emails.data" />
     </div>
   </main>
 </template>
 
 <script setup>
 import { onMounted, ref, computed } from "vue";
+import { useEmailStore } from "../store/mail";
 import DashboardMenu from "../components/DashboardMenu.vue";
+import EmailTable from "../components/EmailTable.vue";
+
+const emailStore = useEmailStore();
+
+const emails = computed(() => emailStore.getEmails);
+const deletedEmails = computed(() => emails.value.filter((email) => email.isDeleted));
+
+onMounted(async () => {
+  if (emails.value.length === 0) {
+    await emailStore.getEmailsAction();
+  }
+});
 </script>

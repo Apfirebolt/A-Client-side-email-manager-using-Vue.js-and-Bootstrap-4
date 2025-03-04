@@ -16,7 +16,8 @@ export default {
           100: "#727D73",
           200: "#e0f2fe",
           300: "#bae6fd",
-      },
+        },
+        danger: '#AC1754'
     },
   },
   plugins: [],

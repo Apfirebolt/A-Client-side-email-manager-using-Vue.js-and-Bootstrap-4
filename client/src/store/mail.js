@@ -31,7 +31,7 @@ export const useEmailStore = defineStore("email", {
   },
 
   actions: {
-    async addEmail(emailData) {
+    async sendEmail(emailData) {
       try {
         const headers = {
           Authorization: `Bearer ${auth.authData.token}`,
