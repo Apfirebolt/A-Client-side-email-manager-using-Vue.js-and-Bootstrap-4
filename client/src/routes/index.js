@@ -54,6 +54,11 @@ const routes = [
         component: () => import('../views/Sent.vue')
     },
     {
+        path: '/read',
+        name: 'Read',
+        component: () => import('../views/Read.vue')
+    },
+    {
         path: '/trash',
         name: 'Trash',
         component: () => import('../views/Trash.vue')

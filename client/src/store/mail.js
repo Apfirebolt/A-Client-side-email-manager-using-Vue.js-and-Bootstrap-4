@@ -132,7 +132,10 @@ export const useEmailStore = defineStore("email", {
             headers,
           }
         );
-        this.email = response.data;
+        if (response.status === 200) {
+          toast.success("Email updated!");
+          await this.getEmailsAction();
+        }
       } catch (error) {
         console.log(error);
       }

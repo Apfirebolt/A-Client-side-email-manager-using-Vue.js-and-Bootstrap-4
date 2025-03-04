@@ -1,6 +1,6 @@
 <template>
   <div class="overflow-x-auto mt-4">
-    <table class="min-w-full bg-white border border-gray-200">
+    <table v-if="emails.length > 0" class="min-w-full bg-white border border-gray-200">
       <thead class="bg-secondary-100">
         <tr>
           <th class="py-3 px-4 text-left text-white font-medium">From</th>
@@ -26,6 +26,9 @@
         </tr>
       </tbody>
     </table>
+    <div v-else class="flex items-center justify-center h-64">
+      <p class="text-gray-500">No emails found</p>
+    </div>
   </div>
 </template>
 

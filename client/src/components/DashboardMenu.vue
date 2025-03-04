@@ -31,6 +31,13 @@
       </li>
       <li class="my-2">
         <router-link
+          to="/read"
+          class="text-lg text-jet-black hover:text-jet-black transition duration-300 ease-in-out p-2 w-48 hover:bg-gray-200 hover:text-xl"
+          >Read</router-link
+        >
+      </li>
+      <li class="my-2">
+        <router-link
           to="/compose"
           class="text-lg text-jet-black hover:text-jet-black transition duration-300 ease-in-out p-2 w-48 hover:bg-gray-200 hover:text-xl"
           >Compose</router-link

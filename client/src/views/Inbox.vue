@@ -3,7 +3,7 @@
     <div class="px-4 py-5">
       <h2 class="text-3xl my-2 py-2 text-center text-jet-black">INBOX</h2>
       <div class="flex flex-col items-center bg-gray-100 p-4 rounded-md">
-        <p>Welcome to the inbox email page</p>
+        <p>Welcome to your inbox. Here you see all your emails</p>
       </div>
       <DashboardMenu />
       <EmailTable v-if="emails" :emails="emails.data" />
@@ -20,7 +20,6 @@ import EmailTable from "../components/EmailTable.vue";
 const emailStore = useEmailStore();
 
 const emails = computed(() => emailStore.getEmails);
-const importantEmails = computed(() => emails.value.filter((email) => email.isImportant));
 
 onMounted(async () => {
   if (emails.value.length === 0) {
